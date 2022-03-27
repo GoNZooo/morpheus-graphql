@@ -57,7 +57,7 @@ camelCaseFieldName nSpace name =
 toHaskellName :: FieldName -> String
 toHaskellName name
   | isReserved name = T.unpack (unpackName name <> "'")
-  | otherwise = T.unpack (uncapitalize (unpackName name))
+  | otherwise = "_" <> T.unpack (uncapitalize (unpackName name))
 {-# INLINE toHaskellName #-}
 
 -- handle reserved Names
